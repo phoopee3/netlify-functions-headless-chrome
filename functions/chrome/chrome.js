@@ -15,7 +15,7 @@ exports.handler = async (event, context) => {
       headless: chromium.headless,
     })
     
-    await browser.close();
+//     await browser.close();
 
 //     // Do stuff with headless chrome
 //     const page = await browser.newPage()
@@ -32,20 +32,20 @@ exports.handler = async (event, context) => {
 
 //     console.log('done on page', theTitle)
 
-//   } catch (error) {
-//     console.log('error', error)
-//     return {
-//       statusCode: 500,
-//       body: JSON.stringify({
-//         error: error
-//       })
-//     }
-//   } finally {
-//     // close browser
-//     if (browser !== null) {
-//       await browser.close()
-//     }
-//   }
+  } catch (error) {
+    console.log('error', error)
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        error: error
+      })
+    }
+  } finally {
+    // close browser
+    if (browser !== null) {
+      await browser.close()
+    }
+  }
 
   return {
     statusCode: 200,
